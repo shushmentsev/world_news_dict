@@ -1,0 +1,17 @@
+﻿Задача - получить аудиофайл формата wav 16кГц, моно, 16 бит
+
+Как скачивать mp3 с помощью youtube-dl:
+http://macrodmin.ru/2018/10/download-mp3-song-from-youtube-videos/
+
+Структура команды:
+Скачивание аудиотрека:
+youtube-dl -x --audio-format wav https://...
+
+LIBAV для youtube-dl:
+https://stackoverflow.com/questions/30770155/ffprobe-or-avprobe-not-found-please-install-one/38878753
+
+Субтитры:
+https://superuser.com/questions/927523/how-to-download-only-subtitles-of-videos-using-youtube-dl
+
+Про ffmpeg:
+http://rus-linux.net/MyLDP/mm/20_ffmpeg_commands.html
