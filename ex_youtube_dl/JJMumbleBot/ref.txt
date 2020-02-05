@@ -1,0 +1,4 @@
+Python youtube_dl.YoutubeDL() Examples:
+https://www.programcreek.com/python/example/98358/youtube_dl.YoutubeDL
+
+https://github.com/DuckBoss/JJMumbleBot
