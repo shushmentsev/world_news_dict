@@ -3,14 +3,21 @@ import os
 
 #Конвертирование аудио в формат wav 16000 Гц, 16 бит, моно:
 def format_waves(wav_dir, f_wav_dir, ffmpeg_path):
-    for i in range(audio_name):
+
+    for wav_name in os.listdir(wav_dir):
         command = ffmpeg_path + " " + \
-                    "-i" + " " + wav_dir + "\\" + str(i + 1) + ".wav" + " " + \
+                    "-i" + " " + wav_dir + "\\" + wav_name + " " + \
                     "-ar 16000 -ac 1 -ab 256k" + " " + \
-                    f_wav_dir + "\\" + "f" + str(i + 1) + ".wav"
+                    f_wav_dir + "\\" + "f" + wav_name
+        
+##    for i in range(audio_name):
+##        command = ffmpeg_path + " " + \
+##                    "-i" + " " + wav_dir + "\\" + str(i + 1) + ".wav" + " " + \
+##                    "-ar 16000 -ac 1 -ab 256k" + " " + \
+##                    f_wav_dir + "\\" + "f" + str(i + 1) + ".wav"
 
         os.system(command)
-        print("Создан файл: ", str(audio_name) + ".wav")
+        print("Создан файл: ", "f" + wav_name)
 
 if __name__ == "__main__":
 
