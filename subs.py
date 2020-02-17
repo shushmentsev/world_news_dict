@@ -35,8 +35,6 @@ for vtt_name in vtt_names:
     
     time_list.append(create_time_list(vtt_dir + r"\\" + vtt_name))
 
-
-
 for i in range(len(time_list)):
 
     prog_csv_name = "p" + str(i + 1) + ".csv"

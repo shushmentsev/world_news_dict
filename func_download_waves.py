@@ -23,7 +23,7 @@ if __name__ == "__main__":
     
     #Пути, необходимые для работы программы:
     yt_dl_path = r"youtube-dl\youtube-dl.exe"
-    config_path = r"config_download_wavs.txt"
+    config_path = r"func_download_wavs.config"
     wav_dir = r"files\wavs\raw"
     urls_path = "urls.txt"
 
