@@ -15,7 +15,7 @@ if __name__ == '__main__':
             }
         ydl = YoutubeDL(ydl_opts)
         #ydl.download(list_url)
-        #list_sub = ydl.list_subtitles("zepiHyho0WM", "all")
+        list_sub = ydl.list_subtitles("zepiHyho0WM", "--all-subs")
         #print(list_sub)
         meta = ydl.extract_info("https://www.youtube.com/watch?v=5RAYRa7e9ks")
         for i in range(len(meta)):

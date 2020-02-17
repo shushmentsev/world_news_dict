@@ -9,8 +9,8 @@ def meta(list_url):
     ydl_opts = {
             #"writeinfojson": False,
             #"skip_download": True,
-            #"writesubtitles": False,
-            #"writeautomaticsub": False,
+            "writesubtitles": False,
+            "writeautomaticsub": False,
             #"listsubtitles": True
             }
     
