@@ -1,0 +1,2 @@
+Настройка "Git":
+https://server-gu.ru/git-config-global-user/

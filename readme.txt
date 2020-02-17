@@ -4,7 +4,8 @@
 
 Пока не получается скачать автоматические субтитры с выделением каждого слова
 
-download_and_format_wavs.py
+func_download_waves.py
+func_format_waves.py
 download_auto_subs.py
 download_hand_subs.py
 subs.py
