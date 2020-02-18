@@ -35,3 +35,6 @@ config_path = r"func_download_auto_subs.config"
 auto_subs_dir = r"files\subs\auto_subs"
 
 download_auto_subs(auto_subs_dir, config_path, yt_dl_path)
+
+
+

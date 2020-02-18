@@ -19,5 +19,5 @@ def cut_f_wav(time_point, time_delta, f_wav_path, fc_wav_path):
                   "-i" + " " + f_wav_path + " " + \
                   fc_wav_path
 
-        print(command)
+        #print(command)
         os.system(command)
