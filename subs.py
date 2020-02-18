@@ -3,7 +3,7 @@
 #Библиотека для взаимодействия с ОС:
 import os
 
-import io
+#import io
 
 #Функция для нарезки звуковых файлов:
 from func_cut_f_wav import cut_f_wav
@@ -14,23 +14,13 @@ from func_time_delta import time_delta
 #Функция для создания списков: [время начала фразы, время конца фразы, фраза]
 from func_create_time_list import create_time_list
 
-#Список форматированных звуковых файлов:
-f_wav_dir = r"files\wavs\format"
-f_wav_names = os.listdir(f_wav_dir)
 
-#Список субтитров:
-vtt_dir = r"files\subs\hand_subs"
-vtt_names = os.listdir(vtt_dir)
 
-#Резаные звуковые файлы:
-fc_wav_dir = r"files\wavs\cut"
+def cut_f_waves_and_create_csv_files(f_wav_dir, vtt_dir, fc_wav_dir, prog_csv_dir, user_csv_dir):
 
-#csv-файлы:
-prog_csv_dir = r"files\csv\prog_csv"
-user_csv_dir = r"files\csv\user_csv"
-
-def cut_f_waves_and_create_csv_files():
-
+    f_wav_names = os.listdir(f_wav_dir)
+    vtt_names = os.listdir(vtt_dir)
+    
     #Создание списка списков [время начала фразы, время конца фразы, фраза]:
     time_list = []
     for vtt_name in vtt_names:
@@ -75,3 +65,21 @@ def cut_f_waves_and_create_csv_files():
 
     prog_f.close()
     user_f.close()
+
+if __name__ == "__main__":
+    
+    #Список форматированных звуковых файлов:
+    f_wav_dir = r"files\wavs\format"
+
+    #Список субтитров:
+    vtt_dir = r"files\subs\hand_subs"
+
+    #Резаные звуковые файлы:
+    fc_wav_dir = r"files\wavs\cut"
+
+    #csv-файлы:
+    prog_csv_dir = r"files\csv\prog_csv"
+    user_csv_dir = r"files\csv\user_csv"
+
+    
+    cut_f_waves_and_create_csv_files(f_wav_dir, vtt_dir, fc_wav_dir, prog_csv_dir, user_csv_dir)
