@@ -2,6 +2,7 @@
 
 #Библиотека для взаимодействия с ОС:
 import os
+import json
 
 #import io
 
@@ -16,8 +17,20 @@ from func_create_time_list import create_time_list
 
 
 
-def cut_f_waves_and_create_csv_files(f_wav_dir, vtt_dir, fc_wav_dir, prog_csv_dir, user_csv_dir):
+def cut_f_waves_and_create_csv_files():
 
+    #Получение данных из "paths.json":
+    f = open("paths.json", "r")
+    paths = json.loads(f.read())
+    f.close
+
+    #Запись путей в переменные:
+    f_wav_dir = paths["f_wav_dir"]
+    fc_wav_dir = paths["fc_wav_dir"]
+    vtt_dir = paths["vtt_dir"]
+    prog_csv_dir = paths["prog_csv_dir"]
+    user_csv_dir = paths["user_csv_dir"]
+    
     f_wav_names = os.listdir(f_wav_dir)
     vtt_names = os.listdir(vtt_dir)
     
@@ -68,18 +81,4 @@ def cut_f_waves_and_create_csv_files(f_wav_dir, vtt_dir, fc_wav_dir, prog_csv_di
 
 if __name__ == "__main__":
     
-    #Список форматированных звуковых файлов:
-    f_wav_dir = r"files\wavs\format"
-
-    #Список субтитров:
-    vtt_dir = r"files\subs\hand_subs"
-
-    #Резаные звуковые файлы:
-    fc_wav_dir = r"files\wavs\cut"
-
-    #csv-файлы:
-    prog_csv_dir = r"files\csv\prog_csv"
-    user_csv_dir = r"files\csv\user_csv"
-
-    
-    cut_f_waves_and_create_csv_files(f_wav_dir, vtt_dir, fc_wav_dir, prog_csv_dir, user_csv_dir)
+    cut_f_waves_and_create_csv_files()

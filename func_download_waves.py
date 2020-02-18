@@ -1,18 +1,30 @@
 import os
+import json
 
 #Скачивание аудио по ссылке и в формате wav:
 #youutbe-dl.exe --config-location config_file_path -0 wav_file_save_path url"
 
-def download_waves(urls_path, config_path, wav_dir, yt_dl_path):
+def download_waves():
 
+    #Получение данных из "paths.json":
+    f = open("paths.json", "r")
+    paths = json.loads(f.read())
+    f.close
+
+    #Запись путей в переменные:
+    urls_path = paths["urls_path"]
+    wav_dir = paths["wav_dir"]
+    yt_dl_path = paths["yt_dl_path"]
+    config_path = paths["config_download_waves"]
+    
     urls = open(urls_path, "r")
     
     audio_name = 0
     for url in urls:
         audio_name = audio_name + 1
-        command = yt_dl_path + " " + \
-                    "--config-location" + " " + config_path + " " + \
-                    "-o" + " " + wav_dir + "\\" + str(audio_name) + ".wav" + " " + \
+        command = os.path.normpath(yt_dl_path) + " " + \
+                    "--config-location" + " " + os.path.normpath(config_path) + " " + \
+                    "-o" + " " + os.path.normpath(wav_dir) + "\\" + str(audio_name) + ".wav" + " " + \
                     url
 
         os.system(command)
@@ -21,10 +33,4 @@ def download_waves(urls_path, config_path, wav_dir, yt_dl_path):
 
 if __name__ == "__main__":
     
-    #Пути, необходимые для работы программы:
-    yt_dl_path = r"youtube-dl\youtube-dl.exe"
-    config_path = r"func_download_wavs.config"
-    wav_dir = r"files\wavs\raw"
-    urls_path = "urls.txt"
-
-    download_waves(urls_path, config_path, wav_dir, yt_dl_path)
+    download_waves()

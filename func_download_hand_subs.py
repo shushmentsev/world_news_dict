@@ -1,18 +1,29 @@
 import os
+import json
 
 urls = open("urls.txt", "r")
 
 #Скачивание русских авторских субтитров по ссылке в формате vtt:
 #youutbe-dl.exe --config-location config_file_path -0 vtt_file_save_path url"
 
-def download_hand_subs(hand_subs_dir, config_path, yt_dl_path):
+def download_hand_subs():
 
+    #Получение данных из "paths.json":
+    f = open("paths.json", "r")
+    paths = json.loads(f.read())
+    f.close
+
+    #Запись путей в переменные:
+    yt_dl_path = paths["yt_dl_path"]
+    config_path = paths["config_download_hand_subs"]
+    hand_subs_dir = paths["hand_subs_dir"]
+    
     sub_name = 0
     for url in urls:
         sub_name = sub_name + 1
-        command = yt_dl_path + " " + \
-                    "--config-location" + " " + config_path + " " + \
-                    "-o" + " " + hand_subs_dir + "\\" + str(sub_name) + " " + \
+        command = os.path.normpath(yt_dl_path) + " " + \
+                    "--config-location" + " " + os.path.normpath(config_path) + " " + \
+                    "-o" + " " + os.path.normpath(hand_subs_dir) + "\\" + str(sub_name) + " " + \
                     url
 
         os.system(command)
@@ -20,9 +31,4 @@ def download_hand_subs(hand_subs_dir, config_path, yt_dl_path):
 
 if __name__ == "__main__":
 
-    #Пути, необходимые для работы программы:
-    yt_dl_path = r"youtube-dl\youtube-dl.exe"
-    config_path = r"func_download_hand_subs.config"
-    hand_subs_dir = r"files\subs\hand_subs"
-
-    download_hand_subs(hand_subs_dir, config_path, yt_dl_path)
+    download_hand_subs()

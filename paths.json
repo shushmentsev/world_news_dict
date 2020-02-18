@@ -1,0 +1,22 @@
+{
+	"urls_path": "urls.txt",
+	
+	"yt_dl_path": "youtube-dl/youtube-dl.exe",
+	"ffmpeg_path": "ffmpeg/bin/ffmpeg.exe",
+	
+	"wav_dir": "files/wavs/raw",
+	"f_wav_dir": "files/wavs/format",
+	"fc_wav_dir": "files/wavs/cut",
+
+	"hand_subs_dir": "files/subs/hand_subs",
+	"auto_subs_dir": "files/subs/auto_subs",
+
+	"prog_csv_dir": "files/csv/prog_csv",
+	"user_csv_dir": "files/csv/user_csv",
+		
+	"config_download_waves": "func_download_waves.config",
+	"config_download_hand_subs": "func_download_hand_subs.config",
+	"config_download_auto_subs": "func_download_auto_subs.config",
+		
+	"vtt_dir": "files/subs/hand_subs"
+}
