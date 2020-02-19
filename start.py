@@ -7,14 +7,14 @@ from subs import cut_f_waves_and_create_csv_files
 #Загрузка звуковых файлов:
 download_waves()
 
-#Форматирование звуковых файлов:
-format_waves()
-
 #Скачивание авторских субтитров:
 download_hand_subs()
 
 #Скачивание автоматических субтитров:
 download_auto_subs()
+
+#Форматирование звуковых файлов:
+format_waves()
 
 #Нарезка звуковых файлов на фразы и создание csv-файлов:
 cut_f_waves_and_create_csv_files()
