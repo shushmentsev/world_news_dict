@@ -47,9 +47,10 @@ while continue_flag:
         print('Нажал на кнопку "Присоединиться / Войти"')
         continue_flag = False
 
+f = open("text.txt", "w", encoding = "utf-8")
 for i in range(len(my_list)):
-    print(my_list[i].text + "\n")
+    f.write(my_list[i].text)
 
-
+f.close()
 
 
