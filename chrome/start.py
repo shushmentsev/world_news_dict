@@ -27,30 +27,36 @@ continue_flag = True
 my_list = []
 while continue_flag:
     try:
-        #Нажатие на кнопку "Присоединиться / Войти":
-        #yt_button = driver.find_element_by_xpath('//*[@id="player_uid_607712792_1"]/div[4]/button')
-        #yt_button.click()
-
+        #Получение текста передачи:
         my_list = driver.find_elements_by_tag_name("p")
         print("Спарсил текст")
 
     except:
         print("Исключение")
 
-##            except NoSuchElementException:
-##                print("Исключение: NoSuchElementException")
-##
-##            except ElementNotInteractableException:
-##                print("Исключение: ElementNotInteractableException")
-
     else:
-        print('Нажал на кнопку "Присоединиться / Войти"')
         continue_flag = False
 
+#Запись текста передачи в файл:
 f = open("text.txt", "w", encoding = "utf-8")
 for i in range(len(my_list)):
     f.write(my_list[i].text)
 
 f.close()
 
+continue_flag = True
+while continue_flag:
+    try:
+        #Получение текста передачи:
+        title = driver.find_element_by_tag_name("title")
+        print("Спарсил название вкладки")
+
+    except:
+        print("Исключение")
+
+    else:
+        print("Else")
+        continue_flag = False
+        
+print(title.text)
 
