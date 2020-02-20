@@ -12,11 +12,11 @@ driver_path = os.getcwd() + 'chrome_driver/chromedriver.exe'
 
 options = Options()
 
-options.binary_location = "chromium/bin/chrome.exe"
+#options.binary_location = "D:/Anton Shushmencev/19.02.20/progs/chromium/chrome.exe"
 
 driver = webdriver.Chrome( \
         options = options, \
-        executable_path = "chrome_driver/chromedriver.exe", \
+        executable_path = "D:/Anton Shushmencev/19.02.20/progs/chrome_driver/chromedriver.exe", \
         )
 
 driver.maximize_window()
@@ -24,13 +24,15 @@ driver.get("https://echo.msk.ru/programs/code/2588256-echo/")
 
 #Получение кнопки "Присоединиться / Войти":
 continue_flag = True
+my_list = []
 while continue_flag:
     try:
-        print('Попытка нажатия на кнопку "Присоединиться / Войти"')
-
         #Нажатие на кнопку "Присоединиться / Войти":
-        yt_button = driver.find_element_by_xpath('//*[@id="player_uid_607712792_1"]/div[4]/button')
-        yt_button.click()
+        #yt_button = driver.find_element_by_xpath('//*[@id="player_uid_607712792_1"]/div[4]/button')
+        #yt_button.click()
+
+        my_list = driver.find_elements_by_tag_name("p")
+        print("Спарсил текст")
 
     except:
         print("Исключение")
@@ -45,7 +47,8 @@ while continue_flag:
         print('Нажал на кнопку "Присоединиться / Войти"')
         continue_flag = False
 
-
+for i in range(len(my_list)):
+    print(my_list[i].text + "\n")
 
 
 
