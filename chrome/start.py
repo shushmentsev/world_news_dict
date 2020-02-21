@@ -48,7 +48,9 @@ continue_flag = True
 while continue_flag:
     try:
         #Получение текста передачи:
-        title = driver.find_element_by_tag_name("title")
+        #a = driver.find_element_by_xpath("/html/body/div[1]/div[6]/div[1]/section[1]/div/div[1]/div[3]/div[2]/div/div/iframe/")
+        #b = driver.find_element_by_class("ytp-cued-thumbnail-overlay-image")
+        i_frame = driver.find_element_by_tag_name("iframe")
         print("Спарсил название вкладки")
 
     except:
@@ -57,6 +59,12 @@ while continue_flag:
     else:
         print("Else")
         continue_flag = False
-        
-print(title.text)
 
+src = i_frame.get_attribute("frameborder")
+print(src)
+print(i_frame)
+print(i_frame.get_attribute("width"))
+print(i_frame.get_attribute("src"))
+print(i_frame.text)
+print(i_frame.get_property("src"))
+#print(b.get_attribute("style"))

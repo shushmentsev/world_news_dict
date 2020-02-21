@@ -1,3 +1,5 @@
 - Опции youtube-dl: -i, --ignore-errors, --playlist-items ITEM_SPEC
 
 - Скачивать нужные фрагменты из видео?
+
+- Добавить перед вводом element.clear()
