@@ -5,6 +5,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
+import time
+
 import os
 
 # chromedriver binary
@@ -44,27 +46,33 @@ for i in range(len(my_list)):
 
 f.close()
 
-continue_flag = True
-while continue_flag:
-    try:
-        #Получение текста передачи:
-        #a = driver.find_element_by_xpath("/html/body/div[1]/div[6]/div[1]/section[1]/div/div[1]/div[3]/div[2]/div/div/iframe/")
-        #b = driver.find_element_by_class("ytp-cued-thumbnail-overlay-image")
-        i_frame = driver.find_element_by_tag_name("iframe")
-        print("Спарсил название вкладки")
+##continue_flag = True
+##while continue_flag:
+##    try:
+##        #Получение текста передачи:
+##        #a = driver.find_element_by_xpath("/html/body/div[1]/div[6]/div[1]/section[1]/div/div[1]/div[3]/div[2]/div/div/iframe/")
+##        #b = driver.find_element_by_class("ytp-cued-thumbnail-overlay-image")
+##        i_frame = driver.find_element_by_tag_name("iframe")
+##        print("Спарсил название вкладки")
+##
+##    except:
+##        print("Исключение")
+##
+##    else:
+##        print("Else")
+##        continue_flag = False
 
-    except:
-        print("Исключение")
-
-    else:
-        print("Else")
-        continue_flag = False
-
-src = i_frame.get_attribute("frameborder")
-print(src)
-print(i_frame)
-print(i_frame.get_attribute("width"))
+i_frame = driver.find_element_by_css_selector("#mmread > div > iframe")
+print("i_frame: ", i_frame)
 print(i_frame.get_attribute("src"))
-print(i_frame.text)
-print(i_frame.get_property("src"))
-#print(b.get_attribute("style"))
+
+##continue_flag = True
+##while continue_flag:
+##    print("Попытка получения URL")
+##    time.sleep(0.3)
+##    if (i_frame.get_attribute("src") != ""):
+##        print("URL: " + i_frame.get_attribute("src"))
+##        continue_flag = False
+        
+
+
