@@ -1,6 +1,3 @@
-#Создаёт пользователей "Гугл Хрома"
-#Заходит в определённый профиль на всех вкладках в каждом окне браузера
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
@@ -9,8 +6,8 @@ import time
 
 import os
 
-# chromedriver binary
-driver_path = os.getcwd() + 'chrome_driver/chromedriver.exe'
+#Путь к драйверу:
+driver_path = "D:/Anton Shushmencev/19.02.20/progs/chrome_driver/chromedriver.exe"
 
 options = Options()
 
@@ -18,7 +15,7 @@ options = Options()
 
 driver = webdriver.Chrome( \
         options = options, \
-        executable_path = "D:/Anton Shushmencev/19.02.20/progs/chrome_driver/chromedriver.exe", \
+        executable_path = driver_path, \
         )
 
 driver.maximize_window()
@@ -30,7 +27,7 @@ my_list = []
 while continue_flag:
     try:
         #Получение текста передачи:
-        my_list = driver.find_elements_by_tag_name("p")
+        my_list = driver.find_elements_by_css_selector("#mmread > div > div > p")
         print("Спарсил текст")
 
     except:
@@ -50,6 +47,4 @@ f.close()
 i_frame = driver.find_element_by_css_selector("#mmread > div > iframe")
 yt_url = i_frame.get_attribute("src")
 print("Ссылка на видео: ", yt_url)
-        
-
 
