@@ -1,16 +1,11 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
-
-import time
-
-import os
-
-import json
 
 from func_create_driver import create_driver
 
+import time
+
 def get_urls(url):
+    
     driver.get(url)
 
     #Задержка, чтобы страница успела прогрузиться:
@@ -26,12 +21,6 @@ def get_urls(url):
 
     return page_urls
 
-#Получение ссылки на видео:
-def get_yt_url():
-    i_frame = driver.find_element_by_css_selector("#mmread > div > iframe")
-    yt_url = i_frame.get_attribute("src")
-    print("Ссылка на видео: ", yt_url)
-
 if __name__ == "__main__":
     driver = create_driver()
     
@@ -39,6 +28,7 @@ if __name__ == "__main__":
     driver.maximize_window()
 
     #Безголовый режим:
+
     
     #Получение ссылок на страницы:
     pages = []
