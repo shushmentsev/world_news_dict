@@ -1,7 +1,7 @@
 from func_create_driver import create_driver
 
 #Функция для получения текста передачи:
-def get_text(driver, url):
+def get_text_in_file(driver, file_path, url):
 
     #Переход по ссылке:
     driver.get(url)
@@ -11,7 +11,7 @@ def get_text(driver, url):
     while continue_flag:
         try:
             #Получение текста передачи:
-            elements = driver.find_elements_by_css_selector("#mmread > div > div > p")
+            paragraphs = driver.find_elements_by_css_selector("#mmread > div > div > p")
             print("Спарсил текст")
 
         except:
@@ -20,12 +20,12 @@ def get_text(driver, url):
         else:
             continue_flag = False
 
-    #Получение списка параграфов:
-    paragraphs = []
-    for elem in elements:
-        paragraphs.append(elem.text)
+    #Запись текста из параграфов в файл:
+    f = open(file_path, "w", encoding = "utf-8")
+    for par in paragraphs:
+        f.write(par.text)
 
-    return paragraphs
+    f.close()
 
 if __name__ == "__main__":
 
@@ -39,13 +39,4 @@ if __name__ == "__main__":
     pass
 
     #Получение текста передачи:
-    paragraphs = get_text(driver, "https://echo.msk.ru/programs/code/2588256-echo/")
-
-    #print(text)
-
-    #Запись текста передачи в файл:
-    f = open("text.txt", "w", encoding = "utf-8")
-    for i in range(len(paragraphs)):
-        f.write(paragraphs[i])
-
-    f.close()
+    get_text_in_file(driver, "text.txt", "https://echo.msk.ru/programs/code/2588256-echo/")
