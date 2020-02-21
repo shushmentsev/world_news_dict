@@ -23,8 +23,20 @@ driver.maximize_window()
 
 #Безголовый режим:
 
+#Переход по ссылке. Программа "Код доступа":
+driver.get("https://echo.msk.ru/programs/code/")
+
+#Получение ссылок на статьи:
+my_list = driver.find_elements_by_css_selector("#archive > div.rel > div > div > div.mediamenu > a.watch.iblock")
+
+for i in range(len(my_list)):
+    print(my_list[i])
+
+for i in range(len(my_list)):
+    print(my_list[i].get_attribute("href"))
+
 #Переход по ссылке:
-driver.get("https://echo.msk.ru/programs/code/2588256-echo/")
+driver.get(my_list[0].get_attribute("href"))
 
 #Получение текста передачи:
 continue_flag = True
@@ -52,4 +64,3 @@ f.close()
 i_frame = driver.find_element_by_css_selector("#mmread > div > iframe")
 yt_url = i_frame.get_attribute("src")
 print("Ссылка на видео: ", yt_url)
-
