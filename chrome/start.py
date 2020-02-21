@@ -9,19 +9,24 @@ import os
 #Путь к драйверу:
 driver_path = "D:/Anton Shushmencev/19.02.20/progs/chrome_driver/chromedriver.exe"
 
+#Опции для драйвера:
 options = Options()
 
-#options.binary_location = "D:/Anton Shushmencev/19.02.20/progs/chromium/chrome.exe"
-
+#Получение драйвера:
 driver = webdriver.Chrome( \
         options = options, \
         executable_path = driver_path, \
         )
 
+#Максимальный размер окна браузера:
 driver.maximize_window()
+
+#Безголовый режим:
+
+#Переход по ссылке:
 driver.get("https://echo.msk.ru/programs/code/2588256-echo/")
 
-#Получение кнопки "Присоединиться / Войти":
+#Получение текста передачи:
 continue_flag = True
 my_list = []
 while continue_flag:
