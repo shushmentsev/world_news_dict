@@ -2,7 +2,7 @@
 from func_create_driver import create_driver
 
 #Функция для получения текста со страницы и записи его в файл:
-from func_get_text_in_file import get_text_in file
+from func_get_text_in_file import get_text_in_file
 
 #Функция для получения ссылки на видео со страницы сайта:
 from func_get_yt_url import get_yt_url
@@ -17,9 +17,13 @@ f.close()
 #\n
 
 #Получение драйвера:
+driver = create_driver()
 
 #Получение текста со страницы и запись его в файл:
 get_text_in_file(driver, "1.txt", "https://echo.msk.ru/programs/code/2588256-echo/")
 
+#Получение ссылки на видео:
+yt_url = get_yt_url(driver, "https://echo.msk.ru/programs/code/2588256-echo/")
 
-
+#Вывод результата:
+print(yt_url)

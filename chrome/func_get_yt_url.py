@@ -19,12 +19,6 @@ if __name__ == "__main__":
 
     #Получение драйвера:
     driver = create_driver()
-    
-    #Максимальный размер окна браузера:
-    driver.maximize_window()
-
-    #Безголовый режим браузера:
-    pass
 
     #Получение ссылки на видео:
     yt_url = get_yt_url(driver, "https://echo.msk.ru/programs/code/2588256-echo/")

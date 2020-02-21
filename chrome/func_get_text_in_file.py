@@ -31,12 +31,6 @@ if __name__ == "__main__":
 
     #Получение драйвера:
     driver = create_driver()
-    
-    #Максимальный размер окна браузера:
-    driver.maximize_window()
-
-    #Безголовый режим:
-    pass
 
     #Получение текста передачи:
     get_text_in_file(driver, "text.txt", "https://echo.msk.ru/programs/code/2588256-echo/")
