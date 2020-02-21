@@ -1,10 +1,15 @@
 from func_create_driver import create_driver
 
+import time
+
 #Функция для получения текста передачи:
 def get_text_in_file(driver, file_path, url):
 
     #Переход по ссылке:
     driver.get(url)
+
+    #Задержка
+    time.sleep(2)
 
     #Получение текста из параграфов:
     continue_flag = True

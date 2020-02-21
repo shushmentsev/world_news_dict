@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 #Путь к драйверу:
-driver_path = "D:/Anton Shushmencev/19.02.20/progs/chrome_driver/chromedriver.exe"
+driver_path = "D:/Anton Shushmencev/world_news_dict/progs/chrome_driver/chromedriver.exe"
 
 #Опции для драйвера:
 options = Options()

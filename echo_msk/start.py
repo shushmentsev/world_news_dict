@@ -11,19 +11,21 @@ from func_get_yt_url import get_yt_url
 urls = []
 f = open("echo_msk_urls.txt", "r", encoding = "utf-8")
 for url in f:
-    urls.append(url)
+    urls.append(url.replace("\n", ""))
 f.close()
-
-#\n
 
 #Получение драйвера:
 driver = create_driver()
 
-#Получение текста со страницы и запись его в файл:
-get_text_in_file(driver, "1.txt", "https://echo.msk.ru/programs/code/2588256-echo/")
+for i in range(len(urls)):
 
-#Получение ссылки на видео:
-yt_url = get_yt_url(driver, "https://echo.msk.ru/programs/code/2588256-echo/")
+    #Получение текста со страницы и запись его в файл:
+    get_text_in_file(driver, str(i + 1) + ".txt", urls[i])
 
-#Вывод результата:
-print(yt_url)
+    #Получение ссылки на видео:
+    yt_url = get_yt_url(driver, urls[i])
+
+    #Запись ссылки на видео в файл:
+    f = open("url_" + str(i + 1) + ".txt", "w", encoding = "utf-8")
+    f.write(yt_url)
+    f.close()
