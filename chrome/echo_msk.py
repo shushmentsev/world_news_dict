@@ -10,22 +10,6 @@ import json
 
 from func_create_driver import create_driver
 
-def get_urls(url):
-    driver.get(url)
-
-    #Задержка, чтобы страница успела прогрузиться:
-    time.sleep(5)
-
-    #Получение ссылок на статьи:
-    my_list = driver.find_elements_by_css_selector("#archive > div.rel > div > div > div.mediamenu > a.watch.iblock")
-
-    page_urls = []
-    #Вывод полученных ссылок:
-    for i in range(len(my_list)):
-        page_urls.append(my_list[i].get_attribute("href"))
-
-    return page_urls
-
 #Получение ссылки на видео:
 def get_yt_url():
     i_frame = driver.find_element_by_css_selector("#mmread > div > iframe")
