@@ -15,9 +15,9 @@ if __name__ == "__main__":
         #Пути, необходимые для работы программы:
         
         #Звуковые файлы:
-        wav_dir = r"files\wavs\raw"
-        f_wav_dir = r"files\wavs\format"
-        fc_wav_dir = r"files\wavs\cut"
+        wav_dir = r"files\waves\raw"
+        f_wav_dir = r"files\waves\format"
+        fc_wav_dir = r"files\waves\cut"
 
         #Субтитры:
         hand_subs_dir = r"files\subs\hand_subs"
