@@ -17,7 +17,7 @@ DIR_FC_WAV = DIR_SRC / "files" / "waves" / "cut"
 # Пути к субтитрам:
 DIR_H_SUBS = DIR_SRC / "files" / "subs" / "hand_subs"
 DIR_A_SUBS = DIR_SRC / "files" / "subs" / "auto_subs"
-DIR_VTT = DIR_SRC / "files" / "subs" / "hand_subs"
+# DIR_VTT = DIR_SRC / "files" / "subs" / "hand_subs"
 
 # Пути к CSV-файлам:
 DIR_P_CSV = DIR_SRC / "files" / "csv" / "prog_csv"

@@ -15,7 +15,7 @@ from func_time_delta import time_delta
 #Функция для создания списков: [время начала фразы, время конца фразы, фраза]
 from func_create_time_list import create_time_list
 
-from conf import DIR_F_WAV, DIR_FC_WAV, DIR_VTT, DIR_P_CSV, DIR_U_CSV
+from conf import DIR_F_WAV, DIR_FC_WAV, DIR_H_SUBS, DIR_A_SUBS, DIR_P_CSV, DIR_U_CSV
 
 def cut_f_waves_and_create_csv_files():
 
@@ -25,18 +25,31 @@ def cut_f_waves_and_create_csv_files():
     # f.close
     
     f_wav_names = os.listdir(DIR_F_WAV)
-    vtt_names = os.listdir(DIR_VTT)
+    h_subs_names = os.listdir(DIR_H_SUBS)
+    a_subs_names = os.listdir(DIR_A_SUBS)
+
+    print(DIR_F_WAV)
+    print(f_wav_names)
+
+    # TODO: Убрать излишнюю вложенность списков [[[],[],[]]]
     
     #Создание списка списков [время начала фразы, время конца фразы, фраза]:
-    time_list = []
-    for vtt_name in vtt_names:
+    time_list_h_subs = []
+    for h_sub_name in h_subs_names:
         
-        time_list.append(create_time_list(str(DIR_VTT) + r"\\" + vtt_name))
+        time_list_h_subs.append(create_time_list(str(DIR_H_SUBS) + r"\\" + h_sub_name))
 
-    print("TIME_LIST:")
-    print(time_list)
+    # Создание списка списков [время начала фразы, время конца фразы, фраза]:
+    time_list_a_subs = []
+    for a_sub_name in a_subs_names:
+        time_list_a_subs.append(create_time_list(str(DIR_H_SUBS) + r"\\" + a_sub_name))
 
-    for i in range(len(time_list)):
+    print("TIME_LISTS:")
+    print(time_list_h_subs[0][0])
+    print(time_list_h_subs[0][1])
+    print(time_list_h_subs[0][2])
+
+    for i in range(len(time_list_h_subs[0][0])):
 
         # TODO: Добавить проверки на существование папок prog_csv и user_csv!!!
         # TODO: Добавить проверку на существование папки cut в папке waves!!!
@@ -53,10 +66,10 @@ def cut_f_waves_and_create_csv_files():
 
         user_f = open(user_csv_path, "w", encoding = "utf-8")
 
-        for j in range(len(time_list[i][0])):
+        for j in range(len(time_list_h_subs[i][0])):
             
-            t_point = time_list[i][0][j]
-            t_delta = str(time_delta(time_list[i][1][j], time_list[i][0][j]))
+            t_point = time_list_h_subs[i][0][j]
+            t_delta = str(time_delta(time_list_h_subs[i][1][j], time_list_h_subs[i][0][j]))
 
             print(f_wav_names[i])
 
@@ -70,14 +83,14 @@ def cut_f_waves_and_create_csv_files():
 
             #Запись в файл "name.csv":
 
-            prog_s = fc_wav_path + ";" + str(os.path.getsize(fc_wav_path)) + ";" + time_list[i][2][j] + "\n"
+            prog_s = fc_wav_path + ";" + str(os.path.getsize(fc_wav_path)) + ";" + time_list_h_subs[i][2][j] + "\n"
             prog_f.write(prog_s)
 
-            user_s = fc_wav_path + ";" + t_delta + ";" + time_list[i][2][j] + "\n"
+            user_s = fc_wav_path + ";" + t_delta + ";" + time_list_h_subs[i][2][j] + "\n"
             user_f.write(user_s)
 
-    prog_f.close()
-    user_f.close()
+        prog_f.close()
+        user_f.close()
 
 if __name__ == "__main__":
     
