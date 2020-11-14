@@ -25,5 +25,5 @@ DIR_U_CSV = DIR_SRC / "files" / "csv" / "user_csv"
 
 # Пути к конфигам:
 PTH_CONF_DL_WAVES = DIR_SRC / "func_download_waves.config"
-PTH_CONF_DL_H_SUBS = DIR_SRC / "func_download_hand_subs.config"
-PTH_CONF_DL_A_SUBS = DIR_SRC / "func_download_auto_subs.config"
+PTH_CONF_DL_H_SUBS = DIR_SRC / "dl_h_subs.config"
+PTH_CONF_DL_A_SUBS = DIR_SRC / "dl_a_subs.config"

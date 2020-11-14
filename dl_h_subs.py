@@ -1,29 +1,20 @@
 import os
-import json
-
-urls = open("urls.txt", "r")
 
 #Скачивание русских авторских субтитров по ссылке в формате vtt:
 #youutbe-dl.exe --config-location config_file_path -0 vtt_file_save_path url"
 
+from conf import PTH_YT_DL, PTH_CONF_DL_H_SUBS, DIR_H_SUBS
+
 def download_hand_subs():
 
-    #Получение данных из "paths.json":
-    f = open("paths.json", "r")
-    paths = json.loads(f.read())
-    f.close
-
-    #Запись путей в переменные:
-    yt_dl_path = paths["yt_dl_path"]
-    config_path = paths["config_download_hand_subs"]
-    hand_subs_dir = paths["hand_subs_dir"]
+    urls = open("urls.txt", "r")
     
     sub_name = 0
     for url in urls:
         sub_name = sub_name + 1
-        command = os.path.normpath(yt_dl_path) + " " + \
-                    "--config-location" + " " + os.path.normpath(config_path) + " " + \
-                    "-o" + " " + os.path.normpath(hand_subs_dir) + "\\" + str(sub_name) + " " + \
+        command = os.path.normpath(PTH_YT_DL) + " " + \
+                    "--config-location" + " " + os.path.normpath(PTH_CONF_DL_H_SUBS) + " " + \
+                    "-o" + " " + os.path.normpath(DIR_H_SUBS) + "\\" + str(sub_name) + " " + \
                     url
 
         os.system(command)
